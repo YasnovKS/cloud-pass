@@ -3,5 +3,7 @@ from forms import MainForm
 
 
 def index(request):
-    form = MainForm()
-    template = ...
+    template = 'index.html'
+    form = MainForm(request.POST or None)
+    if form.is_valid():
+        link = form.cleaned_data.get('search_field')
