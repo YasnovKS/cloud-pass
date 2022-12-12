@@ -1,0 +1,41 @@
+import json
+import re
+import os
+
+import requests
+from bs4 import BeautifulSoup as bs
+from dotenv import load_dotenv
+from cloudpass.settings import BASE_DIR
+
+load_dotenv()
+
+DIRECTORY = BASE_DIR / 'downloads'
+
+
+def get_file(link):
+    DIRECTORY.mkdir(exist_ok=True)
+
+    api = os.getenv('YANDEX_API')
+
+    full_link = f'{api}{link}'
+
+    response = requests.get(full_link)
+
+    soup = bs(response.text, 'lxml')
+    p = soup.find('p')
+    json_object = json.loads(p.text)
+    anc = json_object['href']
+    # getting file name:
+    filename = re.search(r'filename=.*\.\w+', anc)
+    # getting extension:
+    ext = filename.group().split('.')[-1]
+    # getting content-type
+    type = re.search(r'content_type=[\w+|%]+', anc)
+    content_type = type.group().split('=')[-1]
+    content_type.replace('%2F', '/')
+
+    response = requests.get(anc)
+    return response.content, ext, content_type
+
+    # with open(file_path, 'wb') as new_file:
+    #     new_file.write(response.content)
