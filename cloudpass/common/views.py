@@ -16,7 +16,7 @@ def index(request):
         file_path = DIRECTORY / f'{filename}.{ext}'
         with open(file_path, 'wb') as file:
             file.write(file_content)
-        response = FileResponse(open(file_path))
+        response = HttpResponse(file_path, f'Content-type: {content_type}')
         response['Content-Disposition'] = ('attachment; '
                                            f'filename={filename}.{ext}')
         return response
