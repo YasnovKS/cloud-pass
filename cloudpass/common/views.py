@@ -1,9 +1,10 @@
-from common.forms import MainForm
-from django.http import HttpResponse, FileResponse, StreamingHttpResponse
-
-from django.shortcuts import render
-from yandex.yandex_downloader import get_file, DIRECTORY
 from datetime import datetime as dt
+
+from django.http import FileResponse
+from django.shortcuts import render
+
+from common.forms import MainForm
+from yandex.yandex_downloader import DIRECTORY, get_file
 
 
 def index(request):
@@ -11,14 +12,14 @@ def index(request):
     form = MainForm(request.POST or None)
     if form.is_valid():
         link = form.cleaned_data.get('search_field')
-        file_content, ext, content_type = get_file(link)
+        file_content, ext = get_file(link)
         filename = dt.now().strftime('%H-%M-%S-%d-%m-%Y')
         file_path = DIRECTORY / f'{filename}.{ext}'
         with open(file_path, 'wb') as file:
             file.write(file_content)
-        response = HttpResponse(file_path, f'Content-type: {content_type}')
-        response['Content-Disposition'] = ('attachment; '
-                                           f'filename={filename}.{ext}')
+        response = FileResponse(open(file_path, 'rb'),
+                                as_attachment=True,
+                                filename=f'{filename}.{ext}')
         return response
     context = {
         'form': form,

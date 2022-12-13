@@ -29,13 +29,6 @@ def get_file(link):
     filename = re.search(r'filename=.*\.\w+', anc)
     # getting extension:
     ext = filename.group().split('.')[-1]
-    # getting content-type
-    type = re.search(r'content_type=[\w+|%]+', anc)
-    content_type = type.group().split('=')[-1]
-    content_type.replace('%2F', '/')
 
     response = requests.get(anc)
-    return response.content, ext, content_type
-
-    # with open(file_path, 'wb') as new_file:
-    #     new_file.write(response.content)
+    return response.content, ext
