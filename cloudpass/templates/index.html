@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
   <div class="container">
-    <form method="post" action="" class="form">
+    <p class="image">
+      <img src="static/clouds.jpg">
+    </p>
+    <form method="post" action="" class="main-form">
       {% csrf_token %}
-      {% for field in form %}
-        {{ field }}
-      {% endfor %}
+      {{ form.as_p }}
       <button type="submit" class="submit-btn">
-        Скачать
+        СКАЧАТЬ
       </button>
     </form>
   </div>

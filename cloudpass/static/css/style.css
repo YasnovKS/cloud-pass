@@ -1,0 +1,80 @@
+div.container {
+  height: 200px;
+  display: inline;
+}
+
+nav {
+  height: 40px;
+}
+
+h1.title-text {
+  position: relative;
+  font-family: "Lucida Console", "Courier New", monospace;
+  top: 20%;
+  margin-left: 1%;
+}
+
+.image {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.main-form {
+  position: relative;
+  text-align: center;
+}
+
+.input-field {
+  position: relative;
+  height: 35px;
+  border-radius: 8px;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid rgb(168, 165, 165);
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  width: 20%;
+}
+
+.input-field:focus {
+  position: relative;
+  height: 35px;
+  border-radius: 8px;
+  text-size-adjust: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid black;
+  width: 50%;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  height: 40px;
+  border: 2px solid #4CAF50;
+  color: black;
+  transition-duration: 0.8s;
+  border-radius: 14px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.submit-btn {
+  background-color: #4CAF50;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+  width: 150px;
+  height: 40px;
+  border: 2px solid #4CAF50;
+  color: white;
+  border-radius: 14px;
+}
+
+.copyright {
+  text-align: center;
+  margin-block-start: 40px;
+}
