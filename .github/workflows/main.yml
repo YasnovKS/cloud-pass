@@ -65,7 +65,7 @@ jobs:
           script: |
             sudo docker-compose stop
             sudo docker-compose rm backend
-            sudo docker pull ${{ secrets.DOCKER_LOGIN }}/foodgram_backend:v1
+            sudo docker pull ${{ secrets.DOCKER_LOGIN }}/xcloud:v1
             touch .env
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
