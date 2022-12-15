@@ -101,4 +101,7 @@ STATIC_ROOT = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PLACEHOLDER = 'Ссылка для скачивания https://...'
-# 1
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://95.163.233.163'
+]
