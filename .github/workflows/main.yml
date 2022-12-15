@@ -49,28 +49,28 @@ jobs:
           tags: ${{ secrets.DOCKER_LOGIN }}/xcloud:v1
 
     deploy:
-    name: Deploy project on server
-    runs-on: ubuntu-20.04
-    needs:
-      - build_and_push_backend
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - name: executing remote ssh commands to deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: |
-            sudo docker-compose stop
-            sudo docker-compose rm backend
-            sudo docker pull ${{ secrets.DOCKER_LOGIN }}/foodgram_backend:v1
-            touch .env
-            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-            echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
-            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-            sudo docker-compose up -d
+      name: Deploy project on server
+      runs-on: ubuntu-20.04
+      needs:
+        - build_and_push_backend
+      if: github.ref == 'refs/heads/master'
+      steps:
+        - name: executing remote ssh commands to deploy
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SERVER_IP }}
+            username: ${{ secrets.SERVER_USERNAME }}
+            key: ${{ secrets.SSH_KEY }}
+            passphrase: ${{ secrets.SSH_PASSPHRASE }}
+            script: |
+              sudo docker-compose stop
+              sudo docker-compose rm backend
+              sudo docker pull ${{ secrets.DOCKER_LOGIN }}/foodgram_backend:v1
+              touch .env
+              echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
+              echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+              echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
+              echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+              echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+              echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+              sudo docker-compose up -d
