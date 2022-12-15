@@ -100,3 +100,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PLACEHOLDER = 'Ссылка для скачивания https://...'
+# 1
