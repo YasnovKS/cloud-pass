@@ -1,0 +1,22 @@
+version: '1.0'
+services:
+  app:
+    image: cyalater/xcloud:v1
+    restart: always
+    volumes:
+      - static_value:/app/static/
+    env_file:
+      - ./.env
+  
+  nginx:
+    image: nginx:1.19.3
+    ports:
+      - "80:80"
+    volumes:
+      - static_value:/var/html/static/
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+volumes:
+  static_value:
