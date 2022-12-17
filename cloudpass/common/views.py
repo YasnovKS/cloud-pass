@@ -21,7 +21,5 @@ def index(request):
                                 as_attachment=True,
                                 filename=f'{filename}.{ext}')
         return response
-    context = {
-        'form': form,
-    }
+    context = {'form': form}
     return render(request, template, context)
