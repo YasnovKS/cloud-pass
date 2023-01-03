@@ -105,7 +105,7 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-PLACEHOLDER = 'Ссылка для скачивания https://...'
+PLACEHOLDER = 'Вставьте ссылку:'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://95.163.233.163'
