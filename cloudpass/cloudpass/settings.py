@@ -96,12 +96,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if not DEBUG:
-    STATIC_ROOT = 'static/'
-else:
-    STATICFILES_DIRS = [
-        BASE_DIR / 'static',
-    ]
+STATIC_ROOT = 'static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
