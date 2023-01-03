@@ -13,7 +13,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  'app',
-                 '95.163.237.133',
                  '95.163.233.163',
                  ]
 
@@ -26,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common.apps.CommonConfig',
     'yandex.apps.YandexConfig',
+    'google.apps.GoogleConfig',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +96,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = 'static/'
+if not DEBUG:
+    STATIC_ROOT = 'static/'
+else:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+    ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

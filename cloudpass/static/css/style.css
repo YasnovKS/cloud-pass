@@ -1,32 +1,33 @@
-div.container {
-  height: 200px;
-  display: inline;
+header, footer, body, main {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 nav {
-  height: 40px;
+  display: flex;
+  background-color: rgba(40, 187, 255, 0.8);
+  height: 12vh;
 }
 
-h1.title-text {
-  position: relative;
-  font-family: "Lucida Console", "Courier New", monospace;
-  top: 20%;
-  margin-left: 1%;
+.logo {
+  height: 70px;
+  width: 240px;
+  margin: auto 0;
 }
 
-.image {
-  text-align: center;
-  vertical-align: middle;
+.container {
+  height: 76vh;
+  display: flex;
 }
 
 .main-form {
-  position: relative;
+  margin: auto;
   text-align: center;
 }
 
 .input-field {
   position: relative;
-  height: 35px;
+  height: 50px;
   border-radius: 8px;
   font-size: 16px;
   padding-left: 15px;
@@ -34,12 +35,12 @@ h1.title-text {
   border: 2px solid rgb(168, 165, 165);
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  width: 20%;
+  width: 30%;
 }
 
 .input-field:focus {
   position: relative;
-  height: 35px;
+  height: 50px;
   border-radius: 8px;
   text-size-adjust: 12px;
   padding-left: 15px;
@@ -74,7 +75,15 @@ h1.title-text {
   border-radius: 14px;
 }
 
+.footer {
+  display: flex;
+  height: 12vh;
+  background-color: rgba(50, 135, 232, 0.8);
+}
+
 .copyright {
   text-align: center;
-  margin-block-start: 40px;
+  margin: auto;
+  font-size: 100%;
+  font-family: 'Courier';
 }

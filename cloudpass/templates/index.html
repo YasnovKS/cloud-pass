@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
   <div class="container">
-    <p class="image">
-      <img src="static/clouds.jpg">
-    </p>
     <form method="post" action="" class="main-form">
       {% csrf_token %}
       {{ form.as_p }}
