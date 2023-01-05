@@ -115,3 +115,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://x-cloud.pro',
     'x-cloud.pro',
 ]
+
+# 1
