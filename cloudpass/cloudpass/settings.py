@@ -15,6 +15,7 @@ ALLOWED_HOSTS = ['127.0.0.1',
                  'app',
                  '95.163.233.163',
                  'https://www.x-cloud.pro',
+                 'https://x-cloud.pro',
                  ]
 
 INSTALLED_APPS = [
@@ -111,4 +112,5 @@ PLACEHOLDER = 'Вставьте ссылку:'
 CSRF_TRUSTED_ORIGINS = [
     'http://95.163.233.163',
     'https://www.x-cloud.pro',
+    'https://x-cloud.pro',
 ]
