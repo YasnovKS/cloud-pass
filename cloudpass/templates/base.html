@@ -6,16 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
  </head>
- <body>
-  <header>
+ <body id="body">
+  <header class="header">
     {% include 'includes/header.html' %}
   </header>
-  <main>
+  <main class="content-box">
     {% block content %}
     {% endblock %}
   </main>
   <footer>
     {% include 'includes/footer.html' %}
   </footer>
+  <script src="static/background.js"></script>
  </body>
 </html>

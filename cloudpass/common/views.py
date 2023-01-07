@@ -1,4 +1,5 @@
 from datetime import datetime as dt
+import random
 
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -13,6 +14,16 @@ def parse_link(link):
     if 'yandex' in link:
         return yandex
     return google
+
+
+def get_image():
+    item = random.choice(range(1, 8))
+    return str(item)
+
+
+def get_body_style():
+    image = f'loon-image-original({get_image()}).jpg'
+    return image
 
 
 def index(request):
@@ -30,5 +41,7 @@ def index(request):
         }
         )
         return response
-    context = {'form': form}
+    context = {'form': form,
+               'body_style': get_body_style(),
+               }
     return render(request, template, context)

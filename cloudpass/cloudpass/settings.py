@@ -113,6 +113,4 @@ CSRF_TRUSTED_ORIGINS = [
     'http://95.163.233.163',
     'https://www.x-cloud.pro',
     'https://x-cloud.pro',
-    'x-cloud.pro',
 ]
-# 1
