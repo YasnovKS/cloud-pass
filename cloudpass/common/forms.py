@@ -16,7 +16,7 @@ class MainForm(forms.Form):
 
     def clean_search_field(self):
         value = self.cleaned_data['search_field']
-        pattern = r'https://[\w+|\.]*\/\w+\/.*'
+        pattern = r'https://[\w+|\.]*\/.+'
         match = re.fullmatch(pattern, value)
         if not match:
             raise forms.ValidationError('Ссылка должна соответствовать'
