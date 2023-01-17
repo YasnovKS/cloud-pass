@@ -16,6 +16,7 @@ def get_file(link):
     full_link = f'{YANDEX_LINK}{link}'
 
     response = requests.get(full_link)
+    print(response.status_code)
     if response.status_code != 200:
         raise ResponseException()
 

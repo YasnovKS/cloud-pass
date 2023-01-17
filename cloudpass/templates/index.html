@@ -5,8 +5,42 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="submit-btn">
-      Поехали
+      Скачать
     </button>
   </form>
 </div>
+<div data-modal class="manual hidden">
+  <div class="manual-card">
+    <div class="manual-title">
+      Как это работает?
+    </div>
+    <div class="manual-message">
+      <ul class="manual-list">
+        {% for string in message %}
+          <li>
+            {{ string }}
+          </li>
+        {% endfor %}
+      </ul>
+      {% for item in attention %}
+        <p class="attention">
+          {{ item }}
+        </p>
+      {% endfor %}
+    </div>
+    <button class="hide-modal">
+      Понятно
+    </button>
+  </div>
+</div>
+{% if link_error %}
+  <div data-error-modal class="modal-error">
+    <div class="error">
+      {{ link_error }}
+    </div>
+    <button class="hide-error">
+      Понятно
+    </button>
+  </div>
+{% endif %}
 {% endblock %}

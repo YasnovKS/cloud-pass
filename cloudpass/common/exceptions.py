@@ -1,4 +1,5 @@
 class ResponseException(Exception):
+    '''Custom exception for response troubles.'''
     def __init__(self, message=None):
         self.message = message
 
@@ -9,3 +10,12 @@ class ResponseException(Exception):
                     'Если проблема повторяется. напишите в техподдержку '
                     '(кнопка сверху).')
         return self.message
+
+
+class WrongLinkException(Exception):
+    '''Custom exception for link validation errors.'''
+    def __str__(self):
+        return ('Введенная ссылка содержит ошибки или предназначена '
+                'для сервиса, который не обслуживается данным приложением. '
+                'Проверьте правильность ссылки.'
+                )
