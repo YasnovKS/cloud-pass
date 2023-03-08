@@ -62,9 +62,6 @@ header, footer, body, main {
   top: 10%; bottom: 10%;
   width: 100vw;
   color: #fff;
-  background: rgba(39, 36, 36, 0.454);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .manual-card {
@@ -108,9 +105,6 @@ ul {
   top: 10%; bottom: 10%;
   width: 100vw;
   color: #fff;
-  background: rgba(39, 36, 36, 0.454);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .error {
@@ -129,7 +123,7 @@ ul {
 .container {
   display: flex;
   height: 80vh;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
 
 }
